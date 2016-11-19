@@ -24,20 +24,19 @@ describe('Add a New Team', function() {
 	beforeEach(function() {
 		context = { };
 		teamCorrect = {
-		    "TeamID" : 1477261819718,
+		    "teamID" : 1477261819718,
 		    "Players" : [
 					{
-						"First Name" : "Lamar",
-				 		"Last Name" : "Connor",
-				 		"Cap Number" : "1",
-				 		"Position" : "Goalkeeper"
+						"firstName" : "Lamar",
+				 		"lastName" : "Connor",
+				 		"capNumber" : "1",
+				 		"position" : "Goalkeeper"
 				 	}
 				]
 			};
 
 		teamNoPlayers = {
-		    "Name" : "Blue Bombers",
-		    "TeamID" : 1477261819718,
+		    "teamID" : 1477261819718,
 		};
 	});
 

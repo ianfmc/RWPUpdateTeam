@@ -13,7 +13,7 @@ exports.handler = function(event, context, callback) {
         },
         UpdateExpression: "set Players = :a",
         ExpressionAttributeValues:{
-            ":a" : event.Players
+            ":a" : event.players
         }
     };
     docClient.update(params, function(err, data) {
