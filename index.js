@@ -3,15 +3,18 @@ var AWS = require('aws-sdk');
 exports.handler = function(event, context, callback) {
     var docClient = new AWS.DynamoDB.DocumentClient();
     
-    if (event.Players == null) {
+    if (event.teamID == null) {
+        callback(new Error('No Team ID'));
+    }
+    if (event.players == null) {
         callback(new Error('No Players'));
     }
     var params = {
         TableName : "Team",
         Key : { 
-          "TeamID" : event.TeamID,
+          "TeamID" : event.teamID,
         },
-        UpdateExpression: "set Players = :a",
+        UpdateExpression: "set players = :a",
         ExpressionAttributeValues:{
             ":a" : event.players
         }

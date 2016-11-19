@@ -25,7 +25,7 @@ describe('Add a New Team', function() {
 		context = { };
 		teamCorrect = {
 		    "teamID" : 1477261819718,
-		    "Players" : [
+		    "players" : [
 					{
 						"firstName" : "Lamar",
 				 		"lastName" : "Connor",
@@ -34,6 +34,17 @@ describe('Add a New Team', function() {
 				 	}
 				]
 			};
+
+		teamNoTeamID = {
+		    "players" : [
+					{
+						"firstName" : "Lamar",
+				 		"lastName" : "Connor",
+				 		"capNumber" : "1",
+				 		"position" : "Goalkeeper"
+				 	}
+				]
+		};
 
 		teamNoPlayers = {
 		    "teamID" : 1477261819718,
@@ -49,6 +60,14 @@ describe('Add a New Team', function() {
 			expect(err).equal(null);
 			expect(data).to.contain('Success');
 
+			done();
+		});
+	}));
+
+	it('-- Fails when no Players are found', sinon.test(function(done) {
+
+		app.handler(teamNoTeamID, context, function (err, data) {
+			expect(err.message).equal('No Team ID');
 			done();
 		});
 	}));
