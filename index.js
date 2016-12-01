@@ -10,7 +10,7 @@ exports.handler = function(event, context, callback) {
         callback(new Error('No Players'));
     }
     console.log(event.teamID);
-    console.lot(event.players);
+    console.log(event.players);
     var params = {
         TableName : "Team",
         Key : { 
@@ -19,7 +19,8 @@ exports.handler = function(event, context, callback) {
         UpdateExpression: "set players = :a",
         ExpressionAttributeValues:{
             ":a" : event.players
-        }
+        },
+        ReturnValues: "UPDATED_NEW"
     };
     docClient.update(params, function(err, data) {
         if (err) {
