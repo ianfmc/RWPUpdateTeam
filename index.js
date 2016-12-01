@@ -9,10 +9,12 @@ exports.handler = function(event, context, callback) {
     if (event.players == null) {
         callback(new Error('No Players'));
     }
+    console.log(event.teamID);
+    console.lot(event.players);
     var params = {
         TableName : "Team",
         Key : { 
-          "TeamID" : event.teamID,
+          "teamID" : event.teamID.toString(),
         },
         UpdateExpression: "set players = :a",
         ExpressionAttributeValues:{
