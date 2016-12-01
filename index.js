@@ -9,8 +9,6 @@ exports.handler = function(event, context, callback) {
     if (event.players == null) {
         callback(new Error('No Players'));
     }
-    console.log(event.teamID);
-    console.log(event.players);
     var params = {
         TableName : "Team",
         Key : { 
